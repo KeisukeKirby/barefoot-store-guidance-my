@@ -122,16 +122,25 @@
           <!-- Right Column (Info Cards & Buttons) -->
           <div class="store-info-right">
             <div class="info-cards">
-              <!-- Card: Address -->
-              <a href="#" target="_blank" class="info-card address-card-link">
-                <div class="card-icon"><i data-lucide="map-pinned"></i></div>
-                <div class="card-text">
-                  <h4 class="lang-en">Address <span class="click-hint">(Click to open Maps)</span></h4>
-                  <h4 class="lang-ms">Alamat <span class="click-hint">(Klik untuk buka Peta)</span></h4>
-                  <p class="lang-en">Pelangi Avenue, Taman Pelangi, 80400 Johor Bahru, Johor, Malaysia</p>
-                  <p class="lang-ms">Pelangi Avenue, Taman Pelangi, 80400 Johor Bahru, Johor, Malaysia</p>
+              <!-- Card: Address & Map Route -->
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="#" target="_blank" class="info-card address-card-link" style="margin: 0;">
+                  <div class="card-icon"><i data-lucide="map-pinned"></i></div>
+                  <div class="card-text">
+                    <h4 class="lang-en">Address <span class="click-hint">(Click to open Maps)</span></h4>
+                    <h4 class="lang-ms">Alamat <span class="click-hint">(Klik untuk buka Peta)</span></h4>
+                    <p class="lang-en">Pelangi Avenue, Taman Pelangi, 80400 Johor Bahru, Johor, Malaysia</p>
+                    <p class="lang-ms">Pelangi Avenue, Taman Pelangi, 80400 Johor Bahru, Johor, Malaysia</p>
+                  </div>
+                </a>
+                <div class="action-buttons">
+                  <a href="#" target="_blank" class="btn btn-primary" style="width: 100%;">
+                    <i data-lucide="navigation"></i>
+                    <span class="lang-en">Google Maps Route</span>
+                    <span class="lang-ms">Navigasi Google Maps</span>
+                  </a>
                 </div>
-              </a>
+              </div>
 
               <!-- Card: Hours -->
               <div class="info-card">
@@ -153,14 +162,23 @@
                   <p>Coming Soon</p>
                 </div>
               </div>
-            </div>
 
-            <div class="action-buttons">
-              <a href="#" target="_blank" class="btn btn-primary">
-                <i data-lucide="navigation"></i>
-                <span class="lang-en">Google Maps Route</span>
-                <span class="lang-ms">Navigasi Google Maps</span>
-              </a>
+              <!-- Card: Inquiries and Order -->
+              <div class="info-card">
+                <div class="card-icon"><i data-lucide="message-circle"></i></div>
+                <div class="card-text" style="width: 100%;">
+                  <h4 class="lang-en">Inquiries and Order</h4>
+                  <h4 class="lang-ms">Pertanyaan dan Pesanan</h4>
+                  <div style="display: flex; gap: 20px; margin-top: 8px;">
+                    <a href="https://www.facebook.com/profile.php?id=61591445845341" target="_blank" style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: #1877F2; text-decoration: none; font-size: 17px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                      <i data-lucide="facebook" style="width: 24px; height: 24px;"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/barefootinc.my" target="_blank" style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: #E4405F; text-decoration: none; font-size: 17px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                      <i data-lucide="instagram" style="width: 24px; height: 24px;"></i> Instagram
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
