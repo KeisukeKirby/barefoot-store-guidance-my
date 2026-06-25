@@ -1,0 +1,63 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Lightbox for images
+  const createLightbox = () => {
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.cssText = `
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9); display: none; justify-content: center;
+      align-items: center; z-index: 9999; cursor: pointer;
+    `;
+    const img = document.createElement('img');
+    img.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 8px; object-fit: contain;';
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    document.querySelectorAll('.trigger-lightbox').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = el.getAttribute('data-img');
+        if (imgSrc) {
+          img.src = imgSrc;
+          lightbox.style.display = 'flex';
+        }
+      });
+    });
+  };
+  createLightbox();
+
+  // Simple Lang switch visual toggle (since full content translation wasn't provided yet)
+  const btnEn = document.getElementById('btn-en');
+  const btnMs = document.getElementById('btn-ms');
+  if (btnEn && btnMs) {
+    btnEn.addEventListener('click', () => {
+      btnEn.classList.add('text-vibram-yellow', 'bg-black/[0.03]');
+      btnEn.classList.remove('text-black/40', 'hover:text-black');
+      btnMs.classList.remove('text-vibram-yellow', 'bg-black/[0.03]');
+      btnMs.classList.add('text-black/40', 'hover:text-black');
+    });
+    btnMs.addEventListener('click', () => {
+      btnMs.classList.add('text-vibram-yellow', 'bg-black/[0.03]');
+      btnMs.classList.remove('text-black/40', 'hover:text-black');
+      btnEn.classList.remove('text-vibram-yellow', 'bg-black/[0.03]');
+      btnEn.classList.add('text-black/40', 'hover:text-black');
+    });
+  }
+});
