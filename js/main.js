@@ -92,3 +92,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+
+  // Product Carousels
+  document.querySelectorAll('.carousel-container').forEach(container => {
+    const track = container.querySelector('.carousel-track');
+    const prevBtn = container.querySelector('.carousel-prev');
+    const nextBtn = container.querySelector('.carousel-next');
+    const dots = container.querySelectorAll('.carousel-dot');
+    const total = parseInt(container.getAttribute('data-total'), 10);
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.classList.add('bg-black/80');
+          dot.classList.remove('bg-black/20');
+        } else {
+          dot.classList.add('bg-black/20');
+          dot.classList.remove('bg-black/80');
+        }
+      });
+    };
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + total) % total;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % total;
+        updateCarousel();
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+  });
