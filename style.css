@@ -1164,3 +1164,16 @@ footer {
 .max-w-5xl { max-width: 64rem !important; }
 .max-w-3xl { max-width: 48rem !important; }
 .w-full { width: 100% !important; }
+
+/* Layout & Spacing Utilities Fallback */
+.pt-20 { padding-top: 5rem !important; }
+.pb-20 { padding-bottom: 5rem !important; }
+.mb-16 { margin-bottom: 4rem !important; }
+.justify-center { justify-content: center !important; }
+.gap-12 { gap: 3rem !important; }
+
+@media (min-width: 1024px) {
+  .lg\:pb-24 { padding-bottom: 6rem !important; }
+  .lg\:gap-20 { gap: 5rem !important; }
+  .lg\:flex-row { flex-direction: row !important; }
+}
