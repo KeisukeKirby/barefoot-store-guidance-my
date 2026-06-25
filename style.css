@@ -1177,3 +1177,5 @@ footer {
   .lg\:gap-20 { gap: 5rem !important; }
   .lg\:flex-row { flex-direction: row !important; }
 }
+
+.text-glow { text-shadow: 0 0 20px rgba(255, 212, 0, 0.5); }
