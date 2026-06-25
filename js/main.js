@@ -101,7 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = container.querySelector('.carousel-next');
     const dots = container.querySelectorAll('.carousel-dot');
     const total = parseInt(container.getAttribute('data-total'), 10);
+    const titlesRaw = container.getAttribute('data-titles');
+    const titles = titlesRaw ? JSON.parse(titlesRaw) : null;
     let currentIndex = 0;
+
+    const titleElement = container.nextElementSibling;
 
     const updateCarousel = () => {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -114,6 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
           dot.classList.remove('bg-black/80');
         }
       });
+      
+      if (titles && titles[currentIndex] && titleElement) {
+        titleElement.textContent = titles[currentIndex];
+      }
     };
 
     if (prevBtn && nextBtn) {
@@ -134,4 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
       });
     });
+    
+    // Initialize the first title if needed
+    updateCarousel();
   });
