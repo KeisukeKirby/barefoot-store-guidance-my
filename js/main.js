@@ -61,3 +61,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+  // FAQ toggle
+  document.querySelectorAll('#faq button').forEach(button => {
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      
+      // Close all others
+      document.querySelectorAll('#faq button').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const icon = b.querySelector('svg');
+        icon.style.transform = 'rotate(0deg)';
+        icon.classList.replace('text-vibram-yellow', 'text-black/30');
+        const content = b.nextElementSibling;
+        if (content && content.classList.contains('faq-content')) {
+          content.classList.add('hidden');
+        }
+      });
+
+      // Toggle current
+      if (!isExpanded) {
+        button.setAttribute('aria-expanded', 'true');
+        const icon = button.querySelector('svg');
+        icon.style.transform = 'rotate(180deg)';
+        icon.classList.replace('text-black/30', 'text-vibram-yellow');
+        const content = button.nextElementSibling;
+        if (content && content.classList.contains('faq-content')) {
+          content.classList.remove('hidden');
+        }
+      }
+    });
+  });
