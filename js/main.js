@@ -46,6 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Full Translation Logic
   const msDict = {
+    "Where can I try Vibram FiveFingers in Malaysia?": "Di manakah saya boleh mencuba Vibram FiveFingers di Malaysia?",
+    "You can try and purchase Vibram FiveFingers at our official Flagship Store located at #03-01, Blok A, Pusat Komersial Pelangi, Jalan Sri Pelangi 4, Taman Pelangi, 80400 Johor Bahru, Johor. Our staff can help you find the perfect fit and model for your needs.": "Anda boleh mencuba dan membeli Vibram FiveFingers di Kedai Utama rasmi kami yang terletak di #03-01, Blok A, Pusat Komersial Pelangi, Jalan Sri Pelangi 4, Taman Pelangi, 80400 Johor Bahru, Johor. Kakitangan kami boleh membantu anda mencari padanan dan model yang sempurna.",
+    "Additionally, you can inquire and make purchases through our Facebook and Instagram pages, or shop online via Shopee and Lazada:": "Selain itu, anda boleh membuat pertanyaan dan pembelian melalui halaman Facebook dan Instagram kami, atau membeli-belah dalam talian melalui Shopee dan Lazada:",
+    "Shopee": "Shopee",
+    "Lazada": "Lazada",
     "COLLECTION": "KOLEKSI",
     "WHY BAREFOOT?": "MENGAPA BERKAKI AYAM?",
     "ACCESS": "AKSES",
@@ -184,4 +189,28 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize the first title if needed
     updateCarousel();
+  });
+
+
+  // FAQ Toggles
+  document.querySelectorAll('#faq button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('svg');
+      
+      // Close all other FAQs
+      document.querySelectorAll('#faq button').forEach(otherBtn => {
+        otherBtn.setAttribute('aria-expanded', 'false');
+        otherBtn.nextElementSibling.classList.add('hidden');
+        otherBtn.querySelector('svg').style.transform = 'rotate(0deg)';
+      });
+
+      // Toggle current FAQ
+      if (!isExpanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
   });
