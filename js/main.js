@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "MOVE": "BERGERAK",
     "more": "lebih",
     "FREELY": "BEBAS",
-    "is available at Pelangi Avenue, Johor Bahru.": "kini terdapat di Pelangi Avenue, Johor Bahru."
+    "is available at Pelangi Avenue, Johor Bahru.": "kini terdapat di Pelangi Avenue, Johor Bahru.",
 
     "MOVE FREELY.": "BERGERAK BEBAS.",
     "Your Connection To Earth": "Sambungan Anda Ke Bumi",
