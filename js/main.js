@@ -84,6 +84,25 @@ document.addEventListener('DOMContentLoaded', () => {
     "more": "lebih",
     "FREELY": "BEBAS",
     "is available at Pelangi Avenue, Johor Bahru.": "kini terdapat di Pelangi Avenue, Johor Bahru."
+
+    "MOVE FREELY.": "BERGERAK BEBAS.",
+    "Your Connection To Earth": "Sambungan Anda Ke Bumi",
+    "Experience the ultimate connection to the earth with VFF FiveFingers. Our revolutionary footwear allows your feet to move naturally, awakening sensory feedback and promoting healthier movement. Watch our brand story to discover the true feeling of barefoot freedom.": "Alami sambungan mutlak ke bumi dengan VFF FiveFingers. Kasut revolusioner kami membolehkan kaki anda bergerak secara semula jadi, membangkitkan maklum balas deria dan menggalakkan pergerakan yang lebih sihat. Tonton kisah jenama kami untuk meneroka rasa sebenar kebebasan berkaki ayam.",
+    
+    "What are Vibram FiveFingers?": "Apakah itu Vibram FiveFingers?",
+    "Vibram FiveFingers are minimalist barefoot shoes with individual toe compartments, designed to mimic the natural feeling of walking barefoot while providing ground protection. Made by Vibram, the world's leading sole manufacturer, they feature ultra-thin yet durable soles that let your feet move naturally.": "Vibram FiveFingers ialah kasut minimalis berkaki ayam dengan petak jari kaki individu, direka untuk meniru rasa semula jadi berjalan tanpa kasut sambil memberikan perlindungan pada tapak kaki. Dibuat oleh Vibram, pengeluar tapak kasut terkemuka di dunia, kasut ini menampilkan tapak yang sangat nipis namun tahan lasak yang membolehkan kaki anda bergerak secara semula jadi.",
+    
+    "What are the benefits of barefoot shoes?": "Apakah faedah kasut berkaki ayam?",
+    "Barefoot shoes offer numerous benefits: they strengthen foot and leg muscles, improve balance and posture, enhance sensory feedback from the ground, promote natural gait patterns, and can help reduce joint pain. The thin sole awakens thousands of nerve endings in your feet, reconnecting you with your body's natural movement.": "Kasut berkaki ayam menawarkan pelbagai faedah: ia menguatkan otot kaki dan betis, memperbaiki keseimbangan dan postur, meningkatkan maklum balas deria dari tanah, menggalakkan corak gaya berjalan semula jadi, dan boleh membantu mengurangkan sakit sendi. Tapak yang nipis membangkitkan ribuan hujung saraf di tapak kaki anda, menyambung semula anda dengan pergerakan semula jadi tubuh anda.",
+    
+    "Can barefoot shoes help with foot pain or posture problems?": "Bolehkah kasut berkaki ayam membantu dengan sakit kaki atau masalah postur?",
+    "Many users report significant improvement in foot pain, plantar fasciitis, knee pain, and postural issues after transitioning to barefoot shoes. By allowing your feet to move naturally without restrictive cushioning or arch support, your foot muscles strengthen over time, leading to better alignment and reduced pain. However, a gradual transition is recommended.": "Ramai pengguna melaporkan peningkatan ketara dalam sakit kaki, plantar fasciitis, sakit lutut, dan masalah postur selepas beralih kepada kasut berkaki ayam. Dengan membenarkan kaki anda bergerak secara semula jadi tanpa kusyen yang menyekat atau sokongan lengkung, otot kaki anda menjadi kuat dari semasa ke semasa, yang membawa kepada postur yang lebih baik dan mengurangkan rasa sakit. Walau bagaimanapun, peralihan secara beransur-ansur adalah disyorkan.",
+    
+    "How should I transition to barefoot shoes?": "Bagaimanakah saya harus beralih kepada kasut berkaki ayam?",
+    "Transitioning should be gradual to allow your muscles, tendons, and skin to adapt. Start by wearing them for short periods (1-2 hours) during daily activities. Gradually increase the duration and intensity over several weeks before using them for long runs or intense workouts. Listen to your body and rest if you feel unusual soreness.": "Peralihan harus dilakukan secara beransur-ansur untuk membolehkan otot, tendon, dan kulit anda menyesuaikan diri. Mulakan dengan memakainya untuk tempoh yang singkat (1-2 jam) semasa aktiviti harian. Tingkatkan secara beransur-ansur tempoh dan intensiti selama beberapa minggu sebelum menggunakannya untuk larian jauh atau senaman yang intensif. Dengar isyarat tubuh anda dan berehat jika anda berasa sakit yang luar biasa.",
+    
+    "What activities are Vibram FiveFingers suitable for?": "Apakah aktiviti yang sesuai untuk Vibram FiveFingers?",
+    "Vibram FiveFingers are versatile shoes suitable for a wide range of activities: running, hiking, gym workouts, CrossFit, yoga, water sports, casual walking, and travel. Different models are optimized for different activities, with sole compounds designed for specific terrains—from rocky trails to gym floors.": "Vibram FiveFingers ialah kasut serba boleh yang sesuai untuk pelbagai jenis aktiviti: larian, mendaki, senaman gim, CrossFit, yoga, sukan air, berjalan santai, dan melancong. Model-model yang berbeza dioptimumkan untuk aktiviti yang berbeza, dengan sebatian tapak yang direka untuk rupa bumi tertentu—dari denai berbatu hingga lantai gim.",
   };
 
   const walkDOM = (node, func) => {
