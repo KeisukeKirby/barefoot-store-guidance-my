@@ -43,56 +43,95 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   createLightbox();
 
-  // Simple Lang switch visual toggle (since full content translation wasn't provided yet)
+  
+  // Full Translation Logic
+  const msDict = {
+    "COLLECTION": "KOLEKSI",
+    "WHY BAREFOOT?": "MENGAPA BERKAKI AYAM?",
+    "ACCESS": "AKSES",
+    "Open in Maps": "Buka di Peta",
+    "Malaysia Debut Collection": "Koleksi Debut Malaysia",
+    "Why Barefoot?": "Mengapa Berkaki Ayam?",
+    "Why Barefoot Sensation?": "Mengapa Sensasi Berkaki Ayam?",
+    "TOE MOBILITY": "MOBILITI JARI KAKI",
+    "Freedom of Toes": "Kebebasan Jari Kaki",
+    "The independent five-toe design frees your toes. It nurtures the sensation of firmly grasping the ground, supports correct posture and stable walking, and reduces foot fatigue.": "Reka bentuk lima jari bebas membebaskan jari kaki anda. Ia menyokong postur dan berjalan yang stabil, serta mengurangkan keletihan kaki.",
+    "BAREFOOT FEEL": "RASA BERKAKI AYAM",
+    "Barefoot Sensation": "Sensasi Berkaki Ayam",
+    "The ultra-thin sole transmits a direct 'barefoot-like' stimulus to the soles of your feet. It awakens dormant senses and promotes natural, healthy walking.": "Tapak yang sangat nipis memberikan rangsangan 'berkaki ayam' terus ke tapak kaki anda. Ia menggalakkan berjalan secara semula jadi dan sihat.",
+    "SOLE VARIETY": "PELBAGAI TAPAK",
+    "High-Performance Soles": "Tapak Berprestasi Tinggi",
+    "Technologized by a specialized sole manufacturer, optimized for various uses from outdoor rocky areas to gyms. Overwhelming grip and durability support all activities.": "Dioptimumkan untuk pelbagai kegunaan dari kawasan berbatu luar ke gim. Cengkaman dan ketahanan menyokong semua aktiviti.",
+    "Frequently Asked Questions": "Soalan Lazim",
+    "FAQ": "Soalan Lazim",
+    "Access & Info": "Akses & Maklumat",
+    "Our vibrant lifestyle store located in the heart of Pelangi, Johor Bahru. Explore the complete collection of Vibram FiveFingers for running, fitness, and daily lifestyle.": "Kedai gaya hidup kami terletak di Pelangi, Johor Bahru. Terokai koleksi lengkap Vibram FiveFingers untuk larian, kecergasan, dan gaya hidup harian.",
+    "Address": "Alamat",
+    "Business Hours": "Waktu Operasi",
+    "Open Daily: 10:00 AM - 9:00 PM": "Buka Setiap Hari: 10:00 AM - 9:00 PM",
+    "Phone": "Telefon",
+    "Coming Soon": "Akan Datang",
+    "Check Route on Google Maps": "Semak Laluan di Peta Google",
+    "Store Exterior": "Luaran Kedai",
+    "Store Interior": "Dalaman Kedai",
+    "Let your feet": "Biarkan kaki anda",
+    "MOVE": "BERGERAK",
+    "more": "lebih",
+    "FREELY": "BEBAS",
+    "is available at Pelangi Avenue, Johor Bahru.": "kini terdapat di Pelangi Avenue, Johor Bahru."
+  };
+
+  const walkDOM = (node, func) => {
+    func(node);
+    node = node.firstChild;
+    while (node) {
+      walkDOM(node, func);
+      node = node.nextSibling;
+    }
+  };
+
+  const translatePage = (lang) => {
+    walkDOM(document.body, (node) => {
+      // 3 is Node.TEXT_NODE
+      if (node.nodeType === 3) {
+        let text = node.nodeValue.trim();
+        if (text.length > 0) {
+          if (!node.originalText) {
+            node.originalText = node.nodeValue; // Preserve whitespaces
+          }
+          
+          let trimmedOriginal = node.originalText.trim();
+          
+          if (lang === 'ms' && msDict[trimmedOriginal]) {
+            node.nodeValue = node.originalText.replace(trimmedOriginal, msDict[trimmedOriginal]);
+          } else if (lang === 'en') {
+            node.nodeValue = node.originalText;
+          }
+        }
+      }
+    });
+  };
+
   const btnEn = document.getElementById('btn-en');
   const btnMs = document.getElementById('btn-ms');
+  
   if (btnEn && btnMs) {
     btnEn.addEventListener('click', () => {
       btnEn.classList.add('text-vibram-yellow', 'bg-black/[0.03]');
       btnEn.classList.remove('text-black/40', 'hover:text-black');
       btnMs.classList.remove('text-vibram-yellow', 'bg-black/[0.03]');
       btnMs.classList.add('text-black/40', 'hover:text-black');
+      translatePage('en');
     });
+    
     btnMs.addEventListener('click', () => {
       btnMs.classList.add('text-vibram-yellow', 'bg-black/[0.03]');
       btnMs.classList.remove('text-black/40', 'hover:text-black');
       btnEn.classList.remove('text-vibram-yellow', 'bg-black/[0.03]');
       btnEn.classList.add('text-black/40', 'hover:text-black');
+      translatePage('ms');
     });
   }
-});
-
-  // FAQ toggle
-  document.querySelectorAll('#faq button').forEach(button => {
-    button.addEventListener('click', () => {
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
-      
-      // Close all others
-      document.querySelectorAll('#faq button').forEach(b => {
-        b.setAttribute('aria-expanded', 'false');
-        const icon = b.querySelector('svg');
-        icon.style.transform = 'rotate(0deg)';
-        icon.classList.replace('text-vibram-yellow', 'text-black/30');
-        const content = b.nextElementSibling;
-        if (content && content.classList.contains('faq-content')) {
-          content.classList.add('hidden');
-        }
-      });
-
-      // Toggle current
-      if (!isExpanded) {
-        button.setAttribute('aria-expanded', 'true');
-        const icon = button.querySelector('svg');
-        icon.style.transform = 'rotate(180deg)';
-        icon.classList.replace('text-black/30', 'text-vibram-yellow');
-        const content = button.nextElementSibling;
-        if (content && content.classList.contains('faq-content')) {
-          content.classList.remove('hidden');
-        }
-      }
-    });
-  });
-
 
   // Product Carousels
   document.querySelectorAll('.carousel-container').forEach(container => {
