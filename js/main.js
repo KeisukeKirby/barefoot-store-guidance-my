@@ -192,26 +192,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  
   // FAQ Toggles
-  document.querySelectorAll('#faq button').forEach(btn => {
-    btn.addEventListener('click', () => {
+  const faqBtns = document.querySelectorAll('#faq button');
+  console.log('Found FAQ buttons:', faqBtns.length);
+  
+  faqBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Prevent default to ensure it doesn't navigate if it's somehow wrapped
+      e.preventDefault();
+      
       const isExpanded = btn.getAttribute('aria-expanded') === 'true';
       const content = btn.nextElementSibling;
       const icon = btn.querySelector('svg');
       
+      console.log('FAQ clicked! Currently expanded:', isExpanded);
+      
       // Close all other FAQs
       document.querySelectorAll('#faq button').forEach(otherBtn => {
         otherBtn.setAttribute('aria-expanded', 'false');
-        otherBtn.nextElementSibling.classList.add('hidden');
-        otherBtn.querySelector('svg').style.transform = 'rotate(0deg)';
+        if (otherBtn.nextElementSibling) {
+          otherBtn.nextElementSibling.classList.add('hidden');
+        }
+        const otherIcon = otherBtn.querySelector('svg');
+        if (otherIcon) {
+          otherIcon.style.transform = 'rotate(0deg)';
+        }
       });
 
       // Toggle current FAQ
       if (!isExpanded) {
         btn.setAttribute('aria-expanded', 'true');
-        content.classList.remove('hidden');
-        icon.style.transform = 'rotate(180deg)';
+        if (content) {
+          content.classList.remove('hidden');
+        }
+        if (icon) {
+          icon.style.transform = 'rotate(180deg)';
+        }
       }
     });
   });
+
+});
 });
