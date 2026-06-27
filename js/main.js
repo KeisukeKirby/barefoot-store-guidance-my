@@ -252,4 +252,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // Simple Lightbox Logic
+  const lightboxTriggers = document.querySelectorAll('.lightbox-trigger img');
+  if (lightboxTriggers.length > 0) {
+    const overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 bg-black/90 z-[999] hidden flex items-center justify-center opacity-0 transition-opacity duration-300 p-4';
+    
+    const imgElement = document.createElement('img');
+    imgElement.className = 'max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl transform scale-95 transition-transform duration-300';
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'absolute top-6 right-6 text-white bg-black/50 hover:bg-white hover:text-black w-10 h-10 rounded-full flex items-center justify-center transition-colors';
+    closeBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+    
+    overlay.appendChild(imgElement);
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
+    
+    const closeLightbox = () => {
+      overlay.classList.remove('opacity-100');
+      imgElement.classList.remove('scale-100');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+      }, 300);
+    };
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeLightbox();
+    });
+    
+    lightboxTriggers.forEach(trigger => {
+      trigger.closest('.lightbox-trigger').addEventListener('click', () => {
+        imgElement.src = trigger.src;
+        overlay.classList.remove('hidden');
+        // Trigger reflow
+        void overlay.offsetWidth;
+        overlay.classList.add('opacity-100');
+        imgElement.classList.add('scale-100');
+      });
+    });
+  }
 });
