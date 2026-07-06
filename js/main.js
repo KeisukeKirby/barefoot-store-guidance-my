@@ -256,37 +256,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   
-  // Simple Lightbox Logic
-  const lightboxTriggers = document.querySelectorAll('.lightbox-trigger img');
-  const overlay = document.getElementById('lightbox-overlay');
-  const imgElement = document.getElementById('lightbox-img');
-  const closeBtn = document.getElementById('lightbox-close');
-
-  if (lightboxTriggers.length > 0 && overlay && imgElement && closeBtn) {
-    const closeLightbox = () => {
-      overlay.classList.remove('opacity-100');
-      imgElement.classList.remove('scale-100');
-      setTimeout(() => {
-        overlay.classList.add('hidden');
-        overlay.classList.remove('flex');
-      }, 300);
-    };
-    
-    closeBtn.addEventListener('click', closeLightbox);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeLightbox();
-    });
-    
-    lightboxTriggers.forEach(trigger => {
-      trigger.closest('.lightbox-trigger').addEventListener('click', () => {
-        imgElement.src = trigger.src;
-        overlay.classList.remove('hidden');
-        overlay.classList.add('flex');
-        // Trigger reflow
-        void overlay.offsetWidth;
-        overlay.classList.add('opacity-100');
-        imgElement.classList.add('scale-100');
-      });
-    });
-  }
-});
+  });
