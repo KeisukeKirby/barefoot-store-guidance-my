@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgElement.classList.remove('scale-100');
       setTimeout(() => {
         overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
       }, 300);
     };
     
@@ -280,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
       trigger.closest('.lightbox-trigger').addEventListener('click', () => {
         imgElement.src = trigger.src;
         overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
         // Trigger reflow
         void overlay.offsetWidth;
         overlay.classList.add('opacity-100');
