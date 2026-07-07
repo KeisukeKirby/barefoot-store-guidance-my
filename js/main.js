@@ -105,6 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
     "Vibram FiveFingers are versatile shoes suitable for a wide range of activities: running, hiking, gym workouts, CrossFit, yoga, water sports, casual walking, and travel. Different models are optimized for different activities, with sole compounds designed for specific terrains—from rocky trails to gym floors.": "Vibram FiveFingers ialah kasut serba boleh yang sesuai untuk pelbagai jenis aktiviti: larian, mendaki, senaman gim, CrossFit, yoga, sukan air, berjalan santai, dan melancong. Model-model yang berbeza dioptimumkan untuk aktiviti yang berbeza, dengan sebatian tapak yang direka untuk rupa bumi tertentu—dari denai berbatu hingga lantai gim.",
 
     "Order & Inquiry": "Pesanan & Pertanyaan",
+
+    "Additionally, you can inquire and make purchases through our Facebook and Instagram pages, or shop online via ": "Selain itu, anda boleh membuat pertanyaan dan pembelian melalui halaman Facebook dan Instagram kami, atau membeli-belah dalam talian melalui ",
+    " and ": " dan ",
+    ".": ".",
   };
 
   const walkDOM = (node, func) => {
