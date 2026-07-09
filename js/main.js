@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Open Daily: 10:00 AM - 9:00 PM": "Buka Setiap Hari: 10:00 AM - 9:00 PM",
     "Phone": "Telefon",
     "Coming Soon": "Akan Datang",
+    "10am - 8pm<br>(OPEN EVERYDAY)": "10am - 8pm<br>(BUKA SETIAP HARI)",
     "Check Route on Google Maps": "Semak Laluan di Peta Google",
     "Store Exterior": "Luaran Kedai",
     "Store Interior": "Dalaman Kedai",
