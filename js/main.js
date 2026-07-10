@@ -173,9 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = parseInt(container.getAttribute('data-total'), 10);
     const titlesRaw = container.getAttribute('data-titles');
     const titles = titlesRaw ? JSON.parse(titlesRaw) : null;
+    const sizesRaw = container.getAttribute('data-sizes');
+    const sizes = sizesRaw ? JSON.parse(sizesRaw) : null;
     let currentIndex = 0;
 
     const titleElement = container.nextElementSibling;
+    const sizeElement = titleElement ? titleElement.nextElementSibling : null;
 
     const updateCarousel = () => {
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -191,6 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (titles && titles[currentIndex] && titleElement) {
         titleElement.textContent = titles[currentIndex];
+      }
+      
+      if (sizes && sizes[currentIndex] && sizeElement && sizeElement.classList.contains('product-size')) {
+        sizeElement.textContent = "Size: " + sizes[currentIndex];
       }
     };
 
