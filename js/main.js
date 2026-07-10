@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "Frequently Asked Questions": "Soalan Lazim",
     "FAQ": "Soalan Lazim",
     "Access & Info": "Akses & Maklumat",
-    "Our vibrant lifestyle store located in the heart of Pelangi, Johor Bahru. Explore the complete collection of Vibram FiveFingers for running, fitness, and daily lifestyle.": "Kedai gaya hidup kami terletak di Pelangi, Johor Bahru. Terokai koleksi lengkap Vibram FiveFingers untuk larian, kecergasan, dan gaya hidup harian.",
+    "Our lifestyle store located in the heart of Johor Bahru. Explore our collection of Vibram FiveFingers for running, fitness, and daily lifestyle.": "Kedai gaya hidup kami terletak di pusat Johor Bahru. Terokai koleksi Vibram FiveFingers kami untuk larian, kecergasan, dan gaya hidup harian.",
     "Address": "Alamat",
     "Business Hours": "Waktu Operasi",
     "Open Daily: 10:00 AM - 9:00 PM": "Buka Setiap Hari: 10:00 AM - 9:00 PM",
