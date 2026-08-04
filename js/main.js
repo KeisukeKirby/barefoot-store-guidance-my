@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "WHY BAREFOOT?": "MENGAPA BERKAKI AYAM?",
     "ACCESS": "AKSES",
     "Open in Maps": "Buka di Peta",
-    "Malaysia Debut Collection": "Koleksi Debut Malaysia",
+    "Product Lineup": "Barisan Produk",
     "Why Barefoot?": "Mengapa Berkaki Ayam?",
     "Why Barefoot Sensation?": "Mengapa Sensasi Berkaki Ayam?",
     "TOE MOBILITY": "MOBILITI JARI KAKI",
