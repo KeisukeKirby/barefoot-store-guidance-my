@@ -18,17 +18,77 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.id = 'lightbox';
     lightbox.style.cssText = `
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9); display: none; justify-content: center;
-      align-items: center; z-index: 9999; cursor: pointer;
+      background: rgba(0,0,0,0.9); display: none; overflow: auto;
+      z-index: 9999;
     `;
+    
+    const imgContainer = document.createElement('div');
+    imgContainer.style.cssText = 'position: relative; display: flex; justify-content: center; align-items: center; width: 100%; min-height: 100%; padding: 2rem; box-sizing: border-box; cursor: pointer;';
+    
     const img = document.createElement('img');
-    img.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 8px; object-fit: contain;';
-    lightbox.appendChild(img);
-    document.body.appendChild(lightbox);
+    img.style.cssText = 'max-width: 100%; max-height: 90vh; border-radius: 8px; object-fit: contain; cursor: zoom-in; transition: transform 0.3s ease;';
+    
+    const zoomBtn = document.createElement('button');
+    zoomBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>';
+    zoomBtn.style.cssText = `
+      position: fixed; bottom: 30px; right: 30px; background: white; color: black; border: none; 
+      border-radius: 50%; width: 50px; height: 50px; display: flex; justify-content: center; 
+      align-items: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 10000;
+    `;
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>';
+    closeBtn.style.cssText = `
+      position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.5); color: white; border: none; 
+      border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; 
+      align-items: center; cursor: pointer; z-index: 10000;
+    `;
 
-    lightbox.addEventListener('click', () => {
+    let isZoomed = false;
+    
+    const toggleZoom = (e) => {
+      if (e) e.stopPropagation();
+      isZoomed = !isZoomed;
+      if (isZoomed) {
+        img.style.maxHeight = 'none';
+        img.style.maxWidth = 'none';
+        img.style.cursor = 'zoom-out';
+        imgContainer.style.alignItems = 'flex-start';
+        imgContainer.style.justifyContent = 'flex-start';
+        zoomBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-out"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="8" x2="14" y1="11" y2="11"/></svg>';
+      } else {
+        img.style.maxHeight = '90vh';
+        img.style.maxWidth = '100%';
+        img.style.cursor = 'zoom-in';
+        imgContainer.style.alignItems = 'center';
+        imgContainer.style.justifyContent = 'center';
+        zoomBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zoom-in"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>';
+      }
+    };
+    
+    const closeLightbox = () => {
       lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+      if (isZoomed) toggleZoom(); // Reset zoom
+    };
+
+    zoomBtn.addEventListener('click', toggleZoom);
+    img.addEventListener('click', toggleZoom);
+    
+    imgContainer.addEventListener('click', (e) => {
+      if (e.target === imgContainer) closeLightbox();
     });
+    
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    imgContainer.appendChild(img);
+    lightbox.appendChild(imgContainer);
+    lightbox.appendChild(zoomBtn);
+    lightbox.appendChild(closeBtn);
+    document.body.appendChild(lightbox);
 
     document.querySelectorAll('.trigger-lightbox').forEach(el => {
       el.addEventListener('click', (e) => {
@@ -36,9 +96,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgSrc = el.getAttribute('data-img');
         if (imgSrc) {
           img.src = imgSrc;
-          lightbox.style.display = 'flex';
+          lightbox.style.display = 'block'; // Block instead of flex to allow scrolling
+          document.body.style.overflow = 'hidden';
         }
       });
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.style.display === 'block') {
+            closeLightbox();
+        }
     });
   };
   createLightbox();
