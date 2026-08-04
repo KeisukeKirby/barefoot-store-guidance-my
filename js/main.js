@@ -52,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isZoomed) {
         img.style.maxHeight = 'none';
         img.style.maxWidth = 'none';
-        // Make it wide enough to read the text
+        // Make it wide enough to read the text but not overwhelmingly large
         if (window.innerWidth > 768) {
-          img.style.width = '100%';
+          img.style.width = '50%';
         } else {
-          img.style.width = '150%';
+          img.style.width = '100%';
         }
         img.style.height = 'auto';
         img.style.cursor = 'zoom-out';
