@@ -81,7 +81,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
   </div>
 </a><header><nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5" aria-label="Main navigation"><div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between"><div class="flex items-center gap-2"><img alt="Barefoot Malaysia" class="h-8 md:h-11 w-auto" src="assets/logo_barefoot_malaysia.png"></div><div class="flex items-center gap-4 md:gap-8"><div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-black/80"><a href="#products" class="hover:text-vibram-yellow transition-colors">COLLECTION</a><a href="#benefits" class="hover:text-vibram-yellow transition-colors">WHY BAREFOOT?</a><a href="#access" class="hover:text-vibram-yellow transition-colors">ACCESS</a></div><div class="flex items-center gap-2 md:ml-8 md:pl-8 md:border-l md:border-black/10 text-xs font-bold uppercase tracking-widest">
-  <div class="relative">
+  <div class="relative md:hidden">
     <select id="lang-select" class="appearance-none bg-black/[0.03] text-black font-bold text-xs uppercase tracking-widest pl-3 pr-8 py-2 rounded-lg cursor-pointer hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-vibram-yellow transition-all">
       <option value="en">🇬🇧 EN</option>
       <option value="ms">🇲🇾 MY</option>
@@ -90,6 +90,19 @@
     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black/50">
       <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
     </div>
+  </div>
+  <div class="hidden md:flex items-center gap-2">
+    <button class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all group/lang text-vibram-yellow bg-black/[0.03]" id="btn-en">
+      <img src="https://flagcdn.com/gb.svg" alt="English" class="w-5 h-[14px] rounded-[1px] shadow-sm border border-black/5 object-cover">EN
+    </button>
+    <span class="text-black/10 text-[10px]">|</span>
+    <button class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all group/lang text-black/40 hover:text-black hover:bg-black/[0.03]" id="btn-ms">
+      <img src="https://flagcdn.com/my.svg" alt="Malaysia" class="w-5 h-[14px] rounded-[1px] shadow-sm border border-black/5 object-cover">MY
+    </button>
+    <span class="text-black/10 text-[10px]">|</span>
+    <button class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all group/lang text-black/40 hover:text-black hover:bg-black/[0.03]" id="btn-zh">
+      <img src="https://flagcdn.com/cn.svg" alt="Chinese" class="w-5 h-[14px] rounded-[1px] shadow-sm border border-black/5 object-cover">ZH
+    </button>
   </div>
 </div></div></div></nav></header><main><section class="relative min-h-[90vh] flex items-center pt-20 pb-20 lg:pb-24 overflow-hidden"><div class="absolute inset-0 z-0 overflow-hidden"><img alt="Vibram FiveFingers Flagship Store Barefoot Park Paradise Park Bangkok interior" class="w-full h-full object-cover opacity-20 blur-2xl scale-110" src="assets/hero_store_exterior.jpg"><div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/95 to-white"></div></div><div class="max-w-[1400px] mx-auto px-6 relative z-10 w-full"><div class="grid lg:grid-cols-2 gap-12 items-center"><div ><h1 class="text-5xl md:text-7xl font-display font-bold leading-tight tracking-tighter mb-8 uppercase">Let your feet <span class="text-vibram-yellow">MOVE</span><br>more <span class="text-vibram-yellow">FREELY</span></h1><p class="text-lg text-black/70 mb-8 leading-relaxed max-w-lg" data-i18n="hero-desc"><span class="font-bold">Vibram FiveFingers</span> is now officially open at Pelangi Avenue, Johor Bahru!</p><div class="space-y-6">
 <div class="flex flex-col lg:flex-col-reverse gap-6">
