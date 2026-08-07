@@ -181,12 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     "Check Size Chart": "Semak Carta Saiz",
     "Where can I try Vibram FiveFingers in Malaysia?": "Di manakah saya boleh mencuba Vibram FiveFingers di Malaysia?",
     "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "Anda boleh mencuba dan membeli Vibram FiveFingers di kedai gaya hidup utama kami yang terletak di Pelangi Avenue, Johor Bahru. Kakitangan kami yang terlatih akan membantu anda mencari saiz dan model yang paling sesuai untuk keperluan anda.",
-    "Campaign Period:": "活动期间：",
-    "Our store is located at PELANGI AVENUE Block A, Lot 3, Level 1": "本店位于 PELANGI AVENUE Block A, Lot 3, Level 1",
-    "Enlarge Map": "放大地图",
-    "Check Size Chart": "查看尺码表",
-    "Where can I try Vibram FiveFingers in Malaysia?": "我在马来西亚哪里可以试穿 Vibram FiveFingers？",
-    "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "您可以前往位于柔佛新山 Pelangi Avenue 的旗舰生活体验店试穿并购买 Vibram FiveFingers。我们训练有素的员工将为您找到最适合您需求的款式。",
     "10% OFF ALL ITEMS": "10% DISKAUN SEMUA BARANGAN",
     "MORE DETAILS, CLICK 👆": "MAKLUMAT LANJUT, KLIK 👆"
   };
@@ -245,6 +239,12 @@ const zhDict = {
     "Additionally, you can inquire and make purchases through our Facebook and Instagram pages, or shop online via ": "此外，您可以通过我们的 Facebook 和 Instagram 页面进行咨询和购买，或通过 ",
     " and ": " 和 ",
     ".": " 在线购物。",
+    "Campaign Period:": "活动期间：",
+    "Our store is located at PELANGI AVENUE Block A, Lot 3, Level 1": "本店位于 PELANGI AVENUE Block A, Lot 3, Level 1",
+    "Enlarge Map": "放大地图",
+    "Check Size Chart": "查看尺码表",
+    "Where can I try Vibram FiveFingers in Malaysia?": "我在马来西亚哪里可以试穿 Vibram FiveFingers？",
+    "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "您可以前往位于柔佛新山 Pelangi Avenue 的旗舰生活体验店试穿并购买 Vibram FiveFingers。我们训练有素的员工将为您找到最适合您需求的款式。",
     "10% OFF ALL ITEMS": "全场 9 折",
     "MORE DETAILS, CLICK 👆": "查看详情请点击👆"
   };
