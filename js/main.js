@@ -188,6 +188,48 @@ document.addEventListener('DOMContentLoaded', () => {
     ".": ".",
   };
 
+const zhDict = {
+    "COLLECTION": "产品系列",
+    "WHY BAREFOOT?": "为何选择赤足？",
+    "ACCESS": "交通位置",
+    "Access & Info": "交通与信息",
+    "Location": "位置",
+    "Address": "地址",
+    "Business Hours": "营业时间",
+    "Open Daily: 10:00 AM - 9:00 PM": "每日营业：10:00 AM - 9:00 PM",
+    "Phone": "电话",
+    "Coming Soon": "即将推出",
+    "Wed-Thu: 10am - 6pm<br>Fri-Sun: 10am - 7pm<br>(Monday and Tuesday are closed.)": "周三-周四: 10am - 6pm<br>周五-周日: 10am - 7pm<br>(周一和周二休息)",
+    "Check Route on Google Maps": "在Google地图上查看路线",
+    "Store Exterior": "店铺外观",
+    "Store Interior": "店铺内景",
+    "Let your feet": "让您的双脚",
+    "MOVE": "自由",
+    "more": "移动",
+    "FREELY": "更自由",
+    "is available at Pelangi Avenue, Johor Bahru.": "现已在柔佛新山 Pelangi Avenue 开业。",
+    "MOVE FREELY.": "自由移动。",
+    "Your Connection To Earth": "您与地球的连接",
+    "Experience the ultimate connection to the earth with Vibram Five Fingers. Our revolutionary footwear allows your feet to move naturally, awakening sensory feedback and promoting healthier movement. Watch our brand story to discover the true feeling of barefoot freedom.": "穿上 Vibram FiveFingers，体验与地球的终极连接。我们革命性的鞋类让您的双脚自然移动，唤醒感官反馈并促进更健康的运动。观看我们的品牌故事，发现真正的赤足自由感。",
+    "What are Vibram FiveFingers?": "什么是 Vibram FiveFingers？",
+    "Vibram FiveFingers are minimalist barefoot shoes with individual toe compartments, designed to mimic the natural feeling of walking barefoot while providing ground protection. Made by Vibram, the world's leading sole manufacturer, they feature ultra-thin yet durable soles that let your feet move naturally.": "Vibram FiveFingers 是简约的赤足鞋，具有独立的脚趾隔层，旨在模仿赤足行走的自然感觉，同时提供地面保护。由全球领先的鞋底制造商 Vibram 制造，它们采用超薄耐用的鞋底，让您的双脚自然移动。",
+    "What are the benefits of barefoot shoes?": "赤足鞋有什么好处？",
+    "Barefoot shoes offer numerous benefits: they strengthen foot and leg muscles, improve balance and posture, enhance sensory feedback from the ground, promote natural gait patterns, and can help reduce joint pain. The thin sole awakens thousands of nerve endings in your feet, reconnecting you with your body's natural movement.": "赤足鞋提供许多好处：它们增强足部和腿部肌肉，改善平衡和姿势，增强地面的感官反馈，促进自然的步态模式，并有助于减少关节疼痛。薄鞋底唤醒您足部的数千个神经末梢，让您重新连接身体的自然运动。",
+    "Can barefoot shoes help with foot pain or posture problems?": "赤足鞋能帮助缓解足部疼痛或姿势问题吗？",
+    "Many users report significant improvement in foot pain, plantar fasciitis, knee pain, and postural issues after transitioning to barefoot shoes. By allowing your feet to move naturally without restrictive cushioning or arch support, your foot muscles strengthen over time, leading to better alignment and reduced pain. However, a gradual transition is recommended.": "许多用户报告在改穿赤足鞋后，足部疼痛、足底筋膜炎、膝盖疼痛和姿势问题有显著改善。通过让您的双脚自然移动，而没有限制性的缓冲或足弓支撑，您的足部肌肉会随着时间的推移而增强，从而改善身体排列并减轻疼痛。不过，建议循序渐进地过渡。",
+    "How should I transition to barefoot shoes?": "我该如何过渡到赤足鞋？",
+    "Transitioning should be gradual to allow your muscles, tendons, and skin to adapt. Start by wearing them for short periods (1-2 hours) during daily activities. Gradually increase the duration and intensity over several weeks before using them for long runs or intense workouts. Listen to your body and rest if you feel unusual soreness.": "过渡应该是循序渐进的，以让您的肌肉、肌腱和皮肤适应。首先在日常活动中短时间穿着（1-2小时）。在将其用于长跑或剧烈运动之前，在几周内逐渐增加持续时间和强度。倾听您的身体，如果感到异常酸痛，请休息。",
+    "What activities are Vibram FiveFingers suitable for?": "Vibram FiveFingers 适合哪些活动？",
+    "Vibram FiveFingers are versatile shoes suitable for a wide range of activities: running, hiking, gym workouts, CrossFit, yoga, water sports, casual walking, and travel. Different models are optimized for different activities, with sole compounds designed for specific terrains—from rocky trails to gym floors.": "Vibram FiveFingers 是一款多功能鞋，适合各种活动：跑步、远足、健身房锻炼、CrossFit、瑜伽、水上运动、休闲散步和旅行。不同的型号针对不同的活动进行了优化，鞋底混合物专为特定地形设计——从岩石小径到健身房地板。",
+    "Order & Inquiry": "订购与咨询",
+    "Additionally, you can inquire and make purchases through our Facebook and Instagram pages, or shop online via ": "此外，您可以通过我们的 Facebook 和 Instagram 页面进行咨询和购买，或通过 ",
+    " and ": " 和 ",
+    ".": " 在线购物。",
+    "10% OFF ALL ITEMS": "全场 9 折",
+    "MORE DETAILS, CLICK 👆": "查看详情请点击👆",
+    "Vibram FiveFingers": "Vibram FiveFingers"
+  };
+
   const walkDOM = (node, func) => {
     func(node);
     node = node.firstChild;
@@ -211,6 +253,8 @@ document.addEventListener('DOMContentLoaded', () => {
           
           if (lang === 'ms' && msDict[trimmedOriginal]) {
             node.nodeValue = node.originalText.replace(trimmedOriginal, msDict[trimmedOriginal]);
+          } else if (lang === 'zh' && zhDict[trimmedOriginal]) {
+            node.nodeValue = node.originalText.replace(trimmedOriginal, zhDict[trimmedOriginal]);
           } else if (lang === 'en') {
             node.nodeValue = node.originalText;
           }
@@ -219,24 +263,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const btnEn = document.getElementById('btn-en');
-  const btnMs = document.getElementById('btn-ms');
-  
-  if (btnEn && btnMs) {
-    btnEn.addEventListener('click', () => {
-      btnEn.classList.add('text-vibram-yellow', 'bg-black/[0.03]');
-      btnEn.classList.remove('text-black/40', 'hover:text-black');
-      btnMs.classList.remove('text-vibram-yellow', 'bg-black/[0.03]');
-      btnMs.classList.add('text-black/40', 'hover:text-black');
-      translatePage('en');
-    });
-    
-    btnMs.addEventListener('click', () => {
-      btnMs.classList.add('text-vibram-yellow', 'bg-black/[0.03]');
-      btnMs.classList.remove('text-black/40', 'hover:text-black');
-      btnEn.classList.remove('text-vibram-yellow', 'bg-black/[0.03]');
-      btnEn.classList.add('text-black/40', 'hover:text-black');
-      translatePage('ms');
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.addEventListener('change', (e) => {
+      translatePage(e.target.value);
     });
   }
 
