@@ -69,18 +69,25 @@
 </script>
 <link rel="stylesheet" href="style.css?v=6">
 <style>
+  /* Each row holds its photos twice; items use margin (not gap) so -50% is exactly one set and the loop is seamless. */
   @keyframes marquee {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 16px)); /* 50% of the total width including gaps */ }
+    100% { transform: translateX(-50%); }
   }
   .animate-marquee {
-    /* 5 images original + 5 new = 10 images. Total 20 with duplicate. Speed 40s */
-    animation: marquee 40s linear infinite;
+    animation: marquee 45s linear infinite;
   }
-  .animate-marquee:hover {
+  .animate-marquee-reverse {
+    animation: marquee 45s linear infinite reverse;
+  }
+  .animate-marquee:hover,
+  .animate-marquee-reverse:hover {
     animation-play-state: paused;
   }
-  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee, .animate-marquee-reverse { animation-duration: 120s; }
+  }
+
   /* Hide scrollbar for the container just in case */
   .marquee-container::-webkit-scrollbar {
     display: none;
@@ -149,56 +156,115 @@
       <span class="text-vibram-yellow font-bold tracking-widest uppercase text-sm md:text-base mb-4 block">Our store is located at PELANGI AVENUE Block A, Lot 3, Level 1</span>
     </div>
     
-    <div class="relative w-full overflow-hidden py-4 -mx-6 px-6 sm:mx-0 sm:px-0 marquee-container">
+    <div class="flex flex-col gap-3 lg:gap-6 -mx-6 sm:mx-0">
+    <div class="relative w-full overflow-hidden py-2 marquee-container">
       <div class="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
       <div class="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-      
-      <div class="flex w-max animate-marquee gap-4 lg:gap-8 hover:!play-state-paused">
-        
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_1.jpg">
-        <img src="assets/store_photo_1.jpg" alt="Store Interior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="flex w-max animate-marquee">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_1.jpg">
+        <img src="assets/store_photo_1.jpg" alt="Store Interior" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_2.jpg">
-        <img src="assets/store_photo_2.jpg" alt="Store Exterior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_8.webp">
+        <img src="assets/gallery_8.webp" alt="Customer wearing Vibram FiveFingers in front of the shoe wall" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_3.jpg">
-        <img src="assets/gallery_3.jpg" alt="Gallery Photo 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_3.jpg">
+        <img src="assets/gallery_3.jpg" alt="Gallery Photo 3" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_4.jpg">
-        <img src="assets/gallery_4.jpg" alt="Gallery Photo 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_10.webp">
+        <img src="assets/gallery_10.webp" alt="V-Run on feet" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_5.jpg">
-        <img src="assets/gallery_5.jpg" alt="Gallery Photo 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_5.jpg">
+        <img src="assets/gallery_5.jpg" alt="Gallery Photo 5" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_6.jpg">
-        <img src="assets/gallery_6.jpg" alt="Gallery Photo 6" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_12.webp">
+        <img src="assets/gallery_12.webp" alt="Why Barefoot poster in store" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_7.jpg">
-        <img src="assets/gallery_7.jpg" alt="Gallery Photo 7" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_7.jpg">
+        <img src="assets/gallery_7.jpg" alt="Gallery Photo 7" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-        
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_1.jpg">
-        <img src="assets/store_photo_1.jpg" alt="Store Interior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_14.webp">
+        <img src="assets/gallery_14.webp" alt="Happy customers at the store" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_2.jpg">
-        <img src="assets/store_photo_2.jpg" alt="Store Exterior" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_1.jpg">
+        <img src="assets/store_photo_1.jpg" alt="Store Interior" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_3.jpg">
-        <img src="assets/gallery_3.jpg" alt="Gallery Photo 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_8.webp">
+        <img src="assets/gallery_8.webp" alt="Customer wearing Vibram FiveFingers in front of the shoe wall" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_4.jpg">
-        <img src="assets/gallery_4.jpg" alt="Gallery Photo 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_3.jpg">
+        <img src="assets/gallery_3.jpg" alt="Gallery Photo 3" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_5.jpg">
-        <img src="assets/gallery_5.jpg" alt="Gallery Photo 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_10.webp">
+        <img src="assets/gallery_10.webp" alt="V-Run on feet" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_6.jpg">
-        <img src="assets/gallery_6.jpg" alt="Gallery Photo 6" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_5.jpg">
+        <img src="assets/gallery_5.jpg" alt="Gallery Photo 5" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
-      <div class="w-[280px] sm:w-[350px] lg:w-[450px] h-[350px] sm:h-[450px] shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_7.jpg">
-        <img src="assets/gallery_7.jpg" alt="Gallery Photo 7" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_12.webp">
+        <img src="assets/gallery_12.webp" alt="Why Barefoot poster in store" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_7.jpg">
+        <img src="assets/gallery_7.jpg" alt="Gallery Photo 7" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_14.webp">
+        <img src="assets/gallery_14.webp" alt="Happy customers at the store" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
       </div>
       </div>
+    </div>
+    <div class="relative w-full overflow-hidden py-2 marquee-container">
+      <div class="absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="flex w-max animate-marquee-reverse">
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_2.jpg">
+        <img src="assets/store_photo_2.jpg" alt="Store Exterior" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_9.webp">
+        <img src="assets/gallery_9.webp" alt="Customers shopping at Barefoot Malaysia store" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_4.jpg">
+        <img src="assets/gallery_4.jpg" alt="Gallery Photo 4" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_11.webp">
+        <img src="assets/gallery_11.webp" alt="V-Soul in brown and black" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_6.jpg">
+        <img src="assets/gallery_6.jpg" alt="Gallery Photo 6" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_13.webp">
+        <img src="assets/gallery_13.webp" alt="Spidrwalk with removable cover" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_15.webp">
+        <img src="assets/gallery_15.webp" alt="Vibram FiveFingers with box" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_16.webp">
+        <img src="assets/gallery_16.webp" alt="V-Soul brown on grass" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/store_photo_2.jpg">
+        <img src="assets/store_photo_2.jpg" alt="Store Exterior" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_9.webp">
+        <img src="assets/gallery_9.webp" alt="Customers shopping at Barefoot Malaysia store" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_4.jpg">
+        <img src="assets/gallery_4.jpg" alt="Gallery Photo 4" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_11.webp">
+        <img src="assets/gallery_11.webp" alt="V-Soul in brown and black" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_6.jpg">
+        <img src="assets/gallery_6.jpg" alt="Gallery Photo 6" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_13.webp">
+        <img src="assets/gallery_13.webp" alt="Spidrwalk with removable cover" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_15.webp">
+        <img src="assets/gallery_15.webp" alt="Vibram FiveFingers with box" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      <div class="w-[240px] sm:w-[300px] lg:w-[340px] h-[300px] sm:h-[375px] lg:h-[425px] mr-4 lg:mr-6 shrink-0 overflow-hidden rounded-2xl shadow-lg cursor-pointer trigger-lightbox" data-img="assets/gallery_16.webp">
+        <img src="assets/gallery_16.webp" alt="V-Soul brown on grass" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+      </div>
+      </div>
+    </div>
     </div>
   </div>
 </section>
