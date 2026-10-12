@@ -88,6 +88,14 @@
     .animate-marquee, .animate-marquee-reverse { animation-duration: 120s; }
   }
 
+  /* Campaign buttons: one line, sized to the button width. 0.0425 = 18px / 419px, the width the
+     longest label (Lazada) needs at 18px; 40px = horizontal padding. Capped at 17px (fits 440px). */
+  .campaign-group { container-type: inline-size; }
+  .campaign-group a[data-campaign-end] { font-size: 14px; white-space: nowrap; }
+  @supports (font-size: 1cqw) {
+    .campaign-group a[data-campaign-end] { font-size: min(17px, calc((100cqw - 40px) * 0.0425)); }
+  }
+
   /* Hide scrollbar for the container just in case */
   .marquee-container::-webkit-scrollbar {
     display: none;
@@ -140,10 +148,10 @@
   </div>
 <div class="hidden md:block">
 <div class="campaign-group flex flex-col gap-3 mt-4 w-full max-w-[440px]">
-  <a href="https://shopee.com.my/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-09T19:00:00+08:00" data-campaign-end="2026-10-14T18:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#EE4D2D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 text-lg leading-relaxed font-normal">
+  <a href="https://shopee.com.my/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-09T19:00:00+08:00" data-campaign-end="2026-10-14T18:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#EE4D2D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 leading-relaxed font-normal">
     <span class="font-bold">Shopee</span><span><span>V-Soul 5% OFF</span> · <span>until</span> 14 Oct 18:59 →</span>
   </a>
-  <a href="https://www.lazada.com.my/shop/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-07T00:00:00+08:00" data-campaign-end="2026-10-12T23:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#0F146D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 text-lg leading-relaxed font-normal">
+  <a href="https://www.lazada.com.my/shop/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-07T00:00:00+08:00" data-campaign-end="2026-10-12T23:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#0F146D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 leading-relaxed font-normal">
     <span class="font-bold">Lazada</span><span><span>All products 5% OFF</span> · <span>until</span> 12 Oct 23:59 →</span>
   </a>
 </div>
@@ -161,10 +169,10 @@
 </div>
 <div class="md:hidden">
 <div class="campaign-group flex flex-col gap-3 mt-4 w-full max-w-[400px] mx-auto">
-  <a href="https://shopee.com.my/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-09T19:00:00+08:00" data-campaign-end="2026-10-14T18:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#EE4D2D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 text-lg leading-relaxed font-normal">
+  <a href="https://shopee.com.my/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-09T19:00:00+08:00" data-campaign-end="2026-10-14T18:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#EE4D2D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 leading-relaxed font-normal">
     <span class="font-bold">Shopee</span><span><span>V-Soul 5% OFF</span> · <span>until</span> 14 Oct 18:59 →</span>
   </a>
-  <a href="https://www.lazada.com.my/shop/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-07T00:00:00+08:00" data-campaign-end="2026-10-12T23:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#0F146D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 text-lg leading-relaxed font-normal">
+  <a href="https://www.lazada.com.my/shop/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-07T00:00:00+08:00" data-campaign-end="2026-10-12T23:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#0F146D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 leading-relaxed font-normal">
     <span class="font-bold">Lazada</span><span><span>All products 5% OFF</span> · <span>until</span> 12 Oct 23:59 →</span>
   </a>
 </div>
@@ -325,10 +333,10 @@
       <div id="mall-campaigns" class="campaign-group mt-14 max-w-[440px] mx-auto">
         <p class="text-lg text-black/70 leading-relaxed mb-6 font-bold">Online Campaigns</p>
         <div class="flex flex-col gap-3 text-left">
-        <a href="https://shopee.com.my/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-09T19:00:00+08:00" data-campaign-end="2026-10-14T18:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#EE4D2D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 text-lg leading-relaxed font-normal">
+        <a href="https://shopee.com.my/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-09T19:00:00+08:00" data-campaign-end="2026-10-14T18:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#EE4D2D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 leading-relaxed font-normal">
           <span class="font-bold">Shopee</span><span><span>V-Soul 5% OFF</span> · <span>until</span> 14 Oct 18:59 →</span>
         </a>
-        <a href="https://www.lazada.com.my/shop/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-07T00:00:00+08:00" data-campaign-end="2026-10-12T23:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#0F146D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 text-lg leading-relaxed font-normal">
+        <a href="https://www.lazada.com.my/shop/barefootmy" target="_blank" rel="noopener noreferrer" data-campaign-start="2026-10-07T00:00:00+08:00" data-campaign-end="2026-10-12T23:59:59+08:00" class="flex items-center justify-between gap-3 rounded-2xl bg-[#0F146D] text-white px-5 py-4 shadow-lg hover:scale-[1.02] transition-transform duration-300 leading-relaxed font-normal">
           <span class="font-bold">Lazada</span><span><span>All products 5% OFF</span> · <span>until</span> 12 Oct 23:59 →</span>
         </a>
         </div>
@@ -345,6 +353,6 @@
 <div class="faq-content hidden px-2 pb-6 text-black/70 text-sm md:text-base leading-relaxed">Vibram FiveFingers are versatile shoes suitable for a wide range of activities: running, hiking, gym workouts, CrossFit, yoga, water sports, casual walking, and travel. Different models are optimized for different activities, with sole compounds designed for specific terrains—from rocky trails to gym floors.</div></div></div></div></section><footer class="py-16 bg-neutral-100 text-black/40 text-[10px] font-bold uppercase tracking-[0.3em] text-center border-t border-black/5"><div class="max-w-7xl mx-auto px-6"><div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-10"><a href="https://www.instagram.com/barefoot.my/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-bold text-xs tracking-widest uppercase shadow-lg hover:shadow-pink-500/30 hover:scale-105 transition-all duration-300 group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram w-6 h-6 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg><span>Instagram</span></a><a href="https://www.facebook.com/profile.php?id=61591445845341" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-3 rounded-full bg-[#1877F2] text-white font-bold text-xs tracking-widest uppercase shadow-lg hover:shadow-blue-500/30 hover:scale-105 transition-all duration-300 group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook w-6 h-6 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg><span>Facebook</span></a><a href="https://www.barefootmy.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-3 rounded-full bg-black text-white font-bold text-xs tracking-widest uppercase shadow-lg hover:shadow-black/30 hover:scale-105 transition-all duration-300 group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-store w-6 h-6 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg><span>Official Store</span></a><a href="https://shopee.com.my/shop/1090349687" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-3 rounded-full bg-[#EE4D2D] text-white font-bold text-xs tracking-widest uppercase shadow-lg hover:shadow-orange-500/30 hover:scale-105 transition-all duration-300 group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag w-6 h-6 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Shopee</span></a><a href="https://www.lazada.com.my/shop/gvszdjhu" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-3 rounded-full bg-[#0F146D] text-white font-bold text-xs tracking-widest uppercase shadow-lg hover:shadow-indigo-500/30 hover:scale-105 transition-all duration-300 group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-6 h-6 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><span>Lazada</span></a></div><p class="border-t border-black/5 pt-10 px-4 leading-loose">© Barefoot Malaysia Sdn Bhd ALL RIGHTS RESERVED.</p></div></footer></div>
 
 
-<script src="js/main.js?v=20261012d"></script>
+<script src="js/main.js?v=20261012e"></script>
 
 </body></html>
