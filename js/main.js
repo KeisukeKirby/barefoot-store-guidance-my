@@ -127,8 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const end = Date.parse(el.dataset.campaignEnd);
     if ((start && now < start) || now > end) el.remove();
   });
-  const campaigns = document.getElementById('mall-campaigns');
-  if (campaigns && !campaigns.querySelector('[data-campaign-end]')) campaigns.remove();
+  document.querySelectorAll('.campaign-group').forEach(group => {
+    if (!group.querySelector('[data-campaign-end]')) group.remove();
+  });
 
   // Full Translation Logic
   const msDict = {
@@ -196,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "V-Soul 5% OFF": "V-Soul DISKAUN 5%",
     "All products 5% OFF": "DISKAUN 5% Semua Produk",
     "Shop now": "Beli sekarang",
+    "until": "sehingga",
     "Where can I try Vibram FiveFingers in Malaysia?": "Di manakah saya boleh mencuba Vibram FiveFingers di Malaysia?",
     "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "Anda boleh mencuba dan membeli Vibram FiveFingers di kedai gaya hidup utama kami yang terletak di Pelangi Avenue, Johor Bahru. Kakitangan kami yang terlatih akan membantu anda mencari saiz dan model yang paling sesuai untuk keperluan anda.",
     "10% OFF ALL ITEMS": "10% DISKAUN SEMUA BARANGAN",
@@ -268,6 +270,7 @@ const zhDict = {
     "V-Soul 5% OFF": "V-Soul 95折",
     "All products 5% OFF": "全场 95折",
     "Shop now": "立即购买",
+    "until": "截至",
     "Where can I try Vibram FiveFingers in Malaysia?": "我在马来西亚哪里可以试穿 Vibram FiveFingers？",
     "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "您可以前往位于柔佛新山 Pelangi Avenue 的旗舰生活体验店试穿并购买 Vibram FiveFingers。我们训练有素的员工将为您找到最适合您需求的款式。",
     "10% OFF ALL ITEMS": "全场 9 折",
