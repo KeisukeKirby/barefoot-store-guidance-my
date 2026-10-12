@@ -120,16 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
   createLightbox();
 
   
-  // Mall campaign banners: show only inside their period, hide the block when none are live
-  const now = Date.now();
-  document.querySelectorAll('[data-campaign-end]').forEach(el => {
-    const start = Date.parse(el.dataset.campaignStart || '');
-    const end = Date.parse(el.dataset.campaignEnd);
-    if ((start && now < start) || now > end) el.remove();
-  });
-  document.querySelectorAll('.campaign-group').forEach(group => {
-    if (!group.querySelector('[data-campaign-end]')) group.remove();
-  });
+  // Mall campaign buttons: remove each one outside its period, and the block when none are live.
+  // Re-checked periodically so a page left open drops a button the moment its deadline passes.
+  const pruneCampaigns = () => {
+    const now = Date.now();
+    document.querySelectorAll('[data-campaign-end]').forEach(el => {
+      const start = Date.parse(el.dataset.campaignStart || '');
+      const end = Date.parse(el.dataset.campaignEnd);
+      if ((start && now < start) || now > end) el.remove();
+    });
+    document.querySelectorAll('.campaign-group').forEach(group => {
+      if (!group.querySelector('[data-campaign-end]')) group.remove();
+    });
+  };
+  pruneCampaigns();
+  if (document.querySelector('[data-campaign-end]')) setInterval(pruneCampaigns, 30000);
 
   // Full Translation Logic
   const msDict = {
