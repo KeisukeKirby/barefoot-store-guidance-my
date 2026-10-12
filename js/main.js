@@ -120,6 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
   createLightbox();
 
   
+  // Mall campaign banners: show only inside their period, hide the block when none are live
+  const now = Date.now();
+  document.querySelectorAll('[data-campaign-end]').forEach(el => {
+    const start = Date.parse(el.dataset.campaignStart || '');
+    const end = Date.parse(el.dataset.campaignEnd);
+    if ((start && now < start) || now > end) el.remove();
+  });
+  const campaigns = document.getElementById('mall-campaigns');
+  if (campaigns && !campaigns.querySelector('[data-campaign-end]')) campaigns.remove();
+
   // Full Translation Logic
   const msDict = {
     "Shopee": "Shopee",
@@ -181,6 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
     "Check Size Chart": "Semak Carta Saiz",
     "Buy Online": "Beli Dalam Talian",
     "Official Store": "Kedai Rasmi",
+    "Online Campaigns": "Kempen Dalam Talian",
+    "Campaign": "Kempen",
+    "V-Soul 5% OFF": "V-Soul DISKAUN 5%",
+    "All products 5% OFF": "DISKAUN 5% Semua Produk",
+    "Shop now": "Beli sekarang",
     "Where can I try Vibram FiveFingers in Malaysia?": "Di manakah saya boleh mencuba Vibram FiveFingers di Malaysia?",
     "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "Anda boleh mencuba dan membeli Vibram FiveFingers di kedai gaya hidup utama kami yang terletak di Pelangi Avenue, Johor Bahru. Kakitangan kami yang terlatih akan membantu anda mencari saiz dan model yang paling sesuai untuk keperluan anda.",
     "10% OFF ALL ITEMS": "10% DISKAUN SEMUA BARANGAN",
@@ -248,6 +263,11 @@ const zhDict = {
     "Check Size Chart": "查看尺码表",
     "Buy Online": "网上购买",
     "Official Store": "官方网店",
+    "Online Campaigns": "线上活动",
+    "Campaign": "活动",
+    "V-Soul 5% OFF": "V-Soul 95折",
+    "All products 5% OFF": "全场 95折",
+    "Shop now": "立即购买",
     "Where can I try Vibram FiveFingers in Malaysia?": "我在马来西亚哪里可以试穿 Vibram FiveFingers？",
     "You can try and purchase Vibram FiveFingers at our flagship lifestyle store located at Pelangi Avenue, Johor Bahru. Our trained staff will help you find the perfect fit and model for your needs.": "您可以前往位于柔佛新山 Pelangi Avenue 的旗舰生活体验店试穿并购买 Vibram FiveFingers。我们训练有素的员工将为您找到最适合您需求的款式。",
     "10% OFF ALL ITEMS": "全场 9 折",
